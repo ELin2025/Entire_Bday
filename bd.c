@@ -77,7 +77,7 @@ main(){
 			prepare[counte].tm_mon = prepare[counte].tm_mon - 1;
 			prepare[counte].tm_sec = 59;
 			prepare[counte].tm_min = 59;
-			prepare[counte].tm_hour = 23;
+			prepare[counte].tm_hour = 23+1;
 			for(int i =0; i< 5;i++){
 				while(ch != '\n'){
 					ch = fgetc(f);

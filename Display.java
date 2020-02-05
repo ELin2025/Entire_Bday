@@ -38,13 +38,7 @@ class Display extends Panel{
             public void mouseEntered(MouseEvent e) {} 
             public void mouseExited(MouseEvent e) {} 
             });
-                
-                // for(int i = 0; i< NUM_IMAGES; i++){
-                //     String name = "photos/" + Integer.toString(i) + ".jpg";
-                // photo = new File(name);
-                // image = ImageIO.read(photo);
-                // resize();
-                // }   
+            Edit.resize(NUM_IMAGES);
             thread.start();
         }
         catch(Exception e){
@@ -87,18 +81,6 @@ class Display extends Panel{
             System.out.println(e);
         }
     }
-    public void resize() throws IOException {
-        for(int i = 0; i< NUM_IMAGES;i++){
-            String name = "photos/" + Integer.toString(i) + ".jpg"; 
-            photo = new File(name);
-            image = ImageIO.read(photo);
-            BufferedImage resize = new BufferedImage((int)screenSize.getWidth(),(int)screenSize.getHeight(), image.getType());
-            Graphics2D g = resize.createGraphics();
-            g.drawImage(image, 0, 0,(int)screenSize.getWidth(), (int)screenSize.getHeight(), null);
-            g.dispose();
-            ImageIO.write(resize, "jpg", photo);
-        }
-    }
 
     private int getFolderSize() {
     int length = 0;
@@ -111,15 +93,5 @@ class Display extends Panel{
         length++;
     }
     return length;
-    }
-    public static void wait(int ms){
-        try
-        {
-            Thread.sleep(ms);
-        }
-        catch(InterruptedException ex)
-        {
-            Thread.currentThread().interrupt();
-        }
     }
 }
