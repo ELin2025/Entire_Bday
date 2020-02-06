@@ -8,7 +8,6 @@
 
 
 int compare(time_t, time_t, time_t);
-char* readLine(FILE* f);
 main(){
 	time_t currentTime = time(NULL);
 	char ch;
@@ -149,11 +148,6 @@ main(){
 			return 0 ;
 		}
 		currentTime = time(NULL);
-		struct tm *hi = localtime(&currentTime);
-		if(hi->tm_hour > 12){
-			hi->tm_hour = hi->tm_hour-12;
-		}
-		currentTime = mktime(hi);
 		char* edit = (char*)malloc(sizeof(ctime(&currentTime)));
 		char* temp = (char*)malloc(sizeof(edit));
 		temp = ctime(&currentTime);
