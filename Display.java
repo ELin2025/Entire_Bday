@@ -65,8 +65,10 @@ class Display extends Panel{
           }
           else{
               if(text2.size() > 0){
+                  int y = 100;
                 for( int i = 0; i< text2.size(); i++){
-                    g.drawString(text2.get(i), 100, 100);
+                    g.drawString(text2.get(i), 100, y);
+                    y+100;
                 }
               }
               else{
@@ -78,7 +80,7 @@ class Display extends Panel{
         }
         catch(Exception e){
             e.printStackTrace(); 
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
